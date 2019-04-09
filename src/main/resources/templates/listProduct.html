@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title> List of Product</title>
+</head>
+<body>
+<table>
+    <th><td>ProductId</td>
+    <td>ProductName</td>
+    <td>Quantity</td>
+    <td>UnitePrice</td>
+    </th>
+    <tr th:each="product:${products}">
+        <td th:text="${product.productId}"></td>
+        <td th:text="${product.productName}"></td>
+        <td th:text="${product.Quantity}"></td>
+        <td th:text="${product.unitPrice}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
