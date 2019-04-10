@@ -21,12 +21,14 @@ public class ProductController {
     public String createProduct(@ModelAttribute("product")Product product){
         return "createProduct";
     }
+
     @PostMapping("/createProduct")
     public String saveProduct(@ModelAttribute("product") Product product){
         System.out.println(product);
         Product savedProduct = productService.save(product);
         return "redirect:/listProduct";
     }
+
     @GetMapping("/listProduct")
     public String getProductList(Model model){
        model.addAttribute("products",productService.findAll());

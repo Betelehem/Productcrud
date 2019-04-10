@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <title>Product From</title>
 </head>
 <body>
+<div class="container">
 <form th:action="@{/createProduct}" th:object="${product}" method="post">
 
-    <label >Product Id</label>
-    <input type="text" th:field="*{productId}"><br/>
-    <label>Product Name</label>
-    <input type="text" th:field="*{productName}"><br/>
-    <lable>Quantity</lable>
-    <input type="text" th:field="*{Quantity}"><br/>
-    <lable >Unit Price</lable>
-    <input type="text" th:field="*{unitPrice}"><br/>
-    <input type="submit" value="save">
+    <input type="text" th:field="*{productId}" class="form-control mb-4 col-4" placeholder="Product Id">
+
+    <input type="text" th:field="*{productName}" class="form-control mb-4 col-4" placeholder="Product name">
+
+    <input type="text" th:field="*{Quantity}" class="form-control mb-4 col-4" placeholder="Quantity">
+
+    <input type="text" th:field="*{unitPrice}" class="form-control mb-4 col-4" placeholder="Unit price">
+
+    <input type="submit" value="save" class="btn btn-info col-2">
 
 </form>
-
+</div>
 </body>
 </html>

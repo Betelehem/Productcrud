@@ -1,8 +1,7 @@
 package edu.mum.productcrud.domin;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 public class Product {
     @Id

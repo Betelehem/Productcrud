@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <title> List of Product</title>
 </head>
 <body>
-<table>
-    <th><td>ProductId</td>
-    <td>ProductName</td>
-    <td>Quantity</td>
-    <td>UnitePrice</td>
-    </th>
+
+<div class="container">
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <td>ProductId</td>
+        <td>ProductName</td>
+        <td>Quantity</td>
+        <td>UnitePrice</td>
+    </tr>
+    </thead>
+    <tbody>
     <tr th:each="product:${products}">
         <td th:text="${product.productId}"></td>
         <td th:text="${product.productName}"></td>
         <td th:text="${product.Quantity}"></td>
         <td th:text="${product.unitPrice}"></td>
     </tr>
+    </tbody>
 </table>
-
+</div>
 </body>
 </html>
