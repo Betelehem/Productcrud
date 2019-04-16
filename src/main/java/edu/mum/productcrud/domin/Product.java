@@ -13,15 +13,20 @@ public class Product {
     @Column(name="product_price")
     Integer unitPrice;
 
+    @OneToOne
+    @JoinColumn(name="category_id")
+    Category category;
+
     public Product() {
 
     }
 
-    public Product(String productId, String productName, Integer quantity, Integer unitPrice) {
+    public Product(String productId, String productName, Integer quantity, Integer unitPrice, Category category) {
         this.productId = productId;
         this.productName = productName;
         Quantity = quantity;
         this.unitPrice = unitPrice;
+        this.category = category;
     }
 
     public String getProductId() {
@@ -54,6 +59,14 @@ public class Product {
 
     public void setUnitPrice(Integer unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
