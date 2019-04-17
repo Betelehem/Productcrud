@@ -1,11 +1,13 @@
 package edu.mum.productcrud.domin;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Product {
     @Id
     @Column(name="product_Id")
+    @NotEmpty(message = "Id can not be empty")
     String productId;
     @Column(name="product_name")
     String productName;

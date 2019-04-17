@@ -19,7 +19,7 @@
     </select>
 
     <input type="text" th:field="*{productId}" class="form-control mb-4 col-4" placeholder="Product Id">
-
+    <p th:if="${#fields.hasErrors('productId')}" th:errors="*{productId}" th:errorclass="fieldError"></p>
     <input type="text" th:field="*{productName}" class="form-control mb-4 col-4" placeholder="Product name">
 
     <input type="text" th:field="*{Quantity}" class="form-control mb-4 col-4" placeholder="Quantity">

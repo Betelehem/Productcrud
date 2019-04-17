@@ -8,8 +8,10 @@ import edu.mum.productcrud.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,13 +36,15 @@ public class ProductController {
     }
 
     @PostMapping("/createProduct")
-    public String saveProduct(@ModelAttribute("product") Product product){
+    public String saveProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult,Model model){
         System.out.println("cat object: " + product.getCategory());
         Long catId = product.getCategory().getId();
 //        Category category = categoryService.findById(catId);
 //        product.setCategory(category);
-
         //product.setCategory(categoryService.findById(catId));
+        if(bindingResult.hasErrors()){
+            model.addAttribute("categories", categoryService.findAll());
+            return "createProduct";}
         Product savedProduct = productService.save(product);
         return "redirect:/listProduct";
     }
